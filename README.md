@@ -5,7 +5,7 @@ exercise, project and line of code tracked in git.
 
 - **Goal:** read ML papers comfortably, build models I can defend, and design experiments that survive peer review.
 - **Pace:** about 8 hours a week, 34 weeks (see [PLAN.md](PLAN.md)).
-- **Language:** Python (NumPy, pandas, SciPy, matplotlib, statsmodels, scikit-learn; PyMC from Module 07).
+- **Language:** Python (NumPy, pandas, SciPy, matplotlib, statsmodels, scikit-learn; PyMC and ArviZ from Module 07).
 
 ## How this repository works
 
@@ -98,7 +98,7 @@ Then follow the loop in [docs/study-method.md](docs/study-method.md) and commit 
 | 04 | [Distributions](curriculum/04-distributions/README.md) | 9–11 | Complete |
 | 05 | [Statistical inference](curriculum/05-inference/README.md) | 12–15 | Complete |
 | 06 | [Regression and GLMs](curriculum/06-regression/README.md) | 16–19 | Complete |
-| 07 | [Bayesian statistics](curriculum/07-bayesian/README.md) | 20–23 | Outline |
+| 07 | [Bayesian statistics](curriculum/07-bayesian/README.md) | 20–23 | Complete |
 | 08 | [Statistical learning and ML evaluation](curriculum/08-statistical-learning/README.md) | 24–27 | Outline |
 | 09 | [Experiments, causal inference and research methods](curriculum/09-causal-and-research/README.md) | 28–31 | Outline |
 | 10 | [Capstone](curriculum/10-capstone/README.md) | 32–34 | Outline |
