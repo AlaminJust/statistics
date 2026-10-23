@@ -13,7 +13,7 @@ One mini-project per module plus the capstone. Each project lives in its own fol
 | [m06-regression-report](m06-regression-report/README.md) | 06 Regression | Recover a known truth; explain and predict disease progression |
 | [m07-bayesian-report](m07-bayesian-report/README.md) | 07 Bayesian | Bayesian A/B test; hierarchical hospital league table |
 | [m08-trustworthy-classifier](m08-trustworthy-classifier/README.md) | 08 Statistical learning | Nested CV, calibration, cost threshold, conformal sets, model card |
-| m09 | | Brief added with Module 09 |
+| [m09-causal-analysis](m09-causal-analysis/README.md) | 09 Causal inference | Does job training raise earnings? Four estimators vs a hidden truth |
 | capstone | 10 | See `curriculum/10-capstone/README.md` |
 
 Every project folder should end up with:

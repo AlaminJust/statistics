@@ -1,38 +1,38 @@
 # Module 09 — Experiments, causal inference and research methods
 
-**Weeks 28–31 · about 32 hours** · Status: **outline** · Adds `dowhy` and `econml` to `requirements.txt`
+**Weeks 28–31 · about 30 hours**
 
-Research asks "what causes what?" and "would this result replicate?". Prediction answers neither. This module covers
-how to design experiments, how to reason about causation when you can't experiment, and how to report ML results so
-that they survive peer review.
+Research asks "what causes what?" and "would this replicate?", and prediction answers neither. This module covers how
+to design experiments, how to reason about causation when you can't experiment, and how to report ML results so they
+survive peer review. Every causal method is implemented directly with NumPy, statsmodels and scikit-learn, so you can see
+exactly what it does. DoWhy and EconML are good next steps, listed in the resources.
 
 ## Lessons
 
-| # | Lesson | You will be able to | Key topics |
+| # | Lesson | Key idea | statkit functions |
 | --- | --- | --- | --- |
-| 09.01 | Experimental design and A/B tests | Design an experiment before running it | randomisation, control groups, blocking and stratification, units of randomisation, power analysis, the peeking problem, sequential testing, CUPED, factorial designs |
-| 09.02 | Potential outcomes and DAGs | Reason formally about causation | potential outcomes, the average treatment effect, confounding, causal DAGs, d-separation, the backdoor criterion, colliders, Simpson's paradox (UC Berkeley 1973) |
-| 09.03 | Observational causal methods | Estimate effects without randomising | regression adjustment, propensity scores, matching, inverse probability weighting, doubly robust estimators, difference-in-differences, instrumental variables, regression discontinuity, double machine learning |
-| 09.04 | Reproducible ML research | Produce results that hold up | seed variance, intervals over runs, ablation studies, fair baselines and tuning budgets, pre-registration, reproducibility checklists, auditing a paper's statistics |
+| 09.01 | [Experimental design and A/B tests](01-experimental-design-ab-tests/lesson.md) | Plan first; SRM checks; peeking inflates errors; CUPED and blocking cut noise | `sample_size_two_proportions`, `srm_test`, `cuped_adjust` |
+| 09.02 | [Potential outcomes and DAGs](02-potential-outcomes-and-dags/lesson.md) | Adjust for confounders, never colliders; Simpson's paradox | `ate_difference_in_means` |
+| 09.03 | [Observational causal methods](03-observational-causal-methods/lesson.md) | IPW, matching, AIPW; DiD, IV, RD, each with one key assumption | `ipw_ate`, `standardized_mean_difference`, `difference_in_differences` |
+| 09.04 | [Reproducible ML research](04-reproducible-ml-research/lesson.md) | Seeds, paired comparisons, ablations, IQM, pre-registration | `seed_summary`, `interquartile_mean` |
 
-## statkit functions (`statkit/causal.py`)
-
-`sample_size_two_proportions(p1, p2, alpha, power)`, `ate_difference_in_means`, `propensity_ipw_ate`,
-`difference_in_differences`, `seed_variance_summary(scores)`.
+Run `make test M=causal` as you implement each function.
 
 ## Mini-project: a causal analysis report
 
-Using the LaLonde job-training data (downloaded into `data/raw/`), compare the naive difference in means, regression
-adjustment, matching and IPW estimates of the training programme's effect on earnings, check covariate balance, and
-write a report with a sensitivity-analysis section.
+Brief in [projects/m09-causal-analysis/README.md](../../projects/m09-causal-analysis/README.md), using
+`data/job_training.csv`.
 
 ## Checkpoint (without notes)
 
-1. Why must the randomisation unit match the analysis unit?
-2. Draw a DAG for "does tutoring raise exam scores?" with one confounder and one collider, and say what to adjust for.
-3. State the key assumption behind IPW, difference-in-differences and instrumental variables, in one sentence each.
-4. Why is "best of 5 runs" misleading, and what should you report instead?
-5. `make test M=causal` passes.
+1. Why must the randomisation unit match the analysis unit? What goes wrong otherwise?
+2. Explain the peeking problem, and one valid way to monitor an experiment.
+3. Draw a DAG for "does tutoring raise exam scores?" with a confounder, a mediator and a collider, and say what to adjust for.
+4. State the key assumption behind IPW, difference-in-differences, instrumental variables and regression discontinuity.
+5. Why is "best of 5 runs" misleading, and what should you report instead?
+6. `make test M=causal` passes.
+
+Pass all six → `git tag -a m09-done -m "Module 09 complete"`.
 
 ## Resources
 
@@ -40,4 +40,5 @@ write a report with a sensitivity-analysis section.
 [Causal Inference for the Brave and True](https://matheusfacure.github.io/python-causality-handbook/) ·
 [Introduction to Causal Inference — Brady Neal](https://www.bradyneal.com/causal-inference-course) ·
 [NeurIPS Paper Checklist](https://neurips.cc/public/guides/PaperChecklist) ·
-[rliable](https://github.com/google-research/rliable)
+[rliable](https://github.com/google-research/rliable) ·
+Optional libraries: [DoWhy](https://www.pywhy.org/dowhy/), [EconML](https://econml.azurewebsites.net/)

@@ -3,6 +3,7 @@
 | File | Rows | What it is | Made by |
 | --- | --- | --- | --- |
 | `students.csv` | 200 | **Synthetic** students: program, year, study hours, sleep, commute, tutoring, exam score | `make_students.py` (seed 42) |
+| `job_training.csv` | 8,000 | **Synthetic** observational study: self-selected job training, earnings before and after | `make_job_training.py` (seed 2025) |
 | `ab_test.csv` | 20,000 | **Synthetic** A/B test of a checkout page: variant, device, pre-period spend, conversion, revenue | `make_ab_test.py` (seed 2024) |
 
 Datasets bundled with scikit-learn (no download needed) are also used in later lessons:
