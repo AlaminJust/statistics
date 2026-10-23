@@ -1,44 +1,41 @@
 # Module 04 — Distributions
 
-**Weeks 9–11 · about 24 hours** · Status: **outline**
+**Weeks 9–11 · about 24 hours**
 
-A handful of probability distributions describe most data and most models: Bernoulli and categorical for
-classification, the normal for errors and averages, the Poisson for counts, the exponential for waiting times. This
-module covers each distribution's story, formulas and uses. It ends with the two results that make statistics work
-(the law of large numbers and the central limit theorem) and with information theory, the source of ML loss functions.
+A handful of distributions describe most data and most models. This module covers each distribution's story and
+formulas, the two theorems that make statistics work (the law of large numbers and the central limit theorem), the
+sampling distributions behind every interval and test, and information theory, the source of ML loss functions.
 
 ## Lessons
 
-| # | Lesson | You will be able to | Key topics |
+| # | Lesson | Key idea | statkit functions |
 | --- | --- | --- | --- |
-| 04.01 | Discrete distributions | Choose and use the right discrete model | Bernoulli, binomial, geometric, Poisson, categorical; PMF, mean, variance; the Poisson as a limit of the binomial; `scipy.stats` |
-| 04.02 | Continuous distributions | Work with densities and CDFs | uniform, exponential, normal, gamma, beta; PDF vs CDF; quantile functions; the memoryless property; inverse-CDF sampling |
-| 04.03 | The normal and multivariate normal | Use the most important distribution in 1 and many dimensions | standardising, z-tables, sums of normals, the 2-D normal, covariance matrices, contour ellipses, marginals and conditionals |
-| 04.04 | Law of large numbers and the CLT | Explain why averages are predictable | LLN, CLT, how fast the CLT kicks in for skewed data, when it fails (Cauchy), Markov, Chebyshev and Hoeffding bounds |
-| 04.05 | Sampling distributions | Know the distribution of x̄, s² and their ratios | standard error σ/√n, the t, χ² and F distributions and where each comes from |
-| 04.06 | Entropy, cross-entropy and KL divergence | Read ML loss functions as information quantities | entropy, cross-entropy loss, KL divergence and its asymmetry, mutual information, the link to maximum likelihood |
+| 04.01 | [Discrete distributions](01-discrete-distributions/lesson.md) | Bernoulli, binomial, geometric, Poisson: recognise the story | `binomial_pmf`, `poisson_pmf`, `geometric_pmf` |
+| 04.02 | [Continuous distributions](02-continuous-distributions/lesson.md) | PDF, CDF, quantile; exponential waits; inverse-CDF sampling | `exponential_cdf`, `sample_inverse_cdf` |
+| 04.03 | [The normal and multivariate normal](03-normal-and-multivariate-normal/lesson.md) | z-scores, 1.96, Q–Q plots; E[Y \| X] is linear | `normal_pdf`, `normal_cdf`, `normal_ppf` |
+| 04.04 | [LLN and CLT](04-lln-and-clt/lesson.md) | Averages converge, and their errors are ≈ normal with sd σ/√n | — |
+| 04.05 | [Sampling distributions](05-sampling-distributions/lesson.md) | Standard errors; χ², t and F | — |
+| 04.06 | [Entropy, cross-entropy and KL](06-information-theory/lesson.md) | Cross-entropy loss = negative log-likelihood | `entropy`, `cross_entropy`, `kl_divergence` |
 
-## statkit functions (`statkit/distributions.py`)
-
-`binomial_pmf`, `poisson_pmf`, `normal_pdf`, `normal_cdf` (via `math.erf`), `exponential_cdf`,
-`sample_inverse_cdf(inverse_cdf, n, rng)`, `entropy`, `cross_entropy`, `kl_divergence`.
+Run `make test M=distributions` as you implement each function.
 
 ## Mini-project: distribution explorer and CLT simulator
 
-A script that, for a chosen distribution and sample size, simulates 10,000 sample means and overlays the normal
-approximation the CLT predicts. Include a figure showing how the skewness of the sample mean falls as n grows for an
-exponential population, and a case where the CLT fails (Cauchy).
+Brief in [projects/m04-clt-explorer/README.md](../../projects/m04-clt-explorer/README.md).
 
 ## Checkpoint (without notes)
 
-1. Which distribution models: the number of emails per hour; whether a user clicks; the time until the next bus?
+1. Which distribution models: emails per hour; whether a user clicks; the time until the next bus?
 2. X ~ N(100, 15²). Find P(X > 130) and the 90th percentile.
-3. State the CLT and explain why it lets us build confidence intervals for means of non-normal data.
-4. Show that cross-entropy loss for a binary classifier equals the negative Bernoulli log-likelihood.
-5. `make test M=distributions` passes.
+3. State the CLT and explain why it lets us build confidence intervals for means of non-normal data. When does it fail?
+4. Why does (x̄ − μ)/(s/√n) follow a t distribution rather than a normal?
+5. Show that binary cross-entropy loss is the negative Bernoulli log-likelihood.
+6. `make test M=distributions` passes.
+
+Pass all six → `git tag -a m04-done -m "Module 04 complete"`.
 
 ## Resources
 
 [Introduction to Probability](http://probabilitybook.net) chapters 4–7 and 10 ·
-[Seeing Theory: probability distributions](https://seeing-theory.brown.edu/) ·
+[Seeing Theory: probability distributions and the CLT](https://seeing-theory.brown.edu/) ·
 [MacKay, Information Theory, Inference and Learning Algorithms](https://www.inference.org.uk/itila/book.html) chapter 2
