@@ -99,6 +99,6 @@ Then follow the loop in [docs/study-method.md](docs/study-method.md) and commit 
 | 05 | [Statistical inference](curriculum/05-inference/README.md) | 12–15 | Complete |
 | 06 | [Regression and GLMs](curriculum/06-regression/README.md) | 16–19 | Complete |
 | 07 | [Bayesian statistics](curriculum/07-bayesian/README.md) | 20–23 | Complete |
-| 08 | [Statistical learning and ML evaluation](curriculum/08-statistical-learning/README.md) | 24–27 | Outline |
+| 08 | [Statistical learning and ML evaluation](curriculum/08-statistical-learning/README.md) | 24–27 | Complete |
 | 09 | [Experiments, causal inference and research methods](curriculum/09-causal-and-research/README.md) | 28–31 | Outline |
 | 10 | [Capstone](curriculum/10-capstone/README.md) | 32–34 | Outline |

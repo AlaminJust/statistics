@@ -1,43 +1,43 @@
 # Module 08 — Statistical learning and ML evaluation
 
-**Weeks 24–27 · about 32 hours** · Status: **outline**
+**Weeks 24–27 · about 28 hours**
 
 This module turns statistics into ML practice: why models generalise, how to measure performance without fooling
-yourself, how to know whether predicted probabilities can be trusted, and how to attach a guaranteed uncertainty to
-every prediction.
+yourself, whether predicted probabilities can be trusted, how to attach guaranteed uncertainty to every prediction, and
+how to handle high-dimensional data.
 
 ## Lessons
 
-| # | Lesson | You will be able to | Key topics |
+| # | Lesson | Key idea | statkit functions |
 | --- | --- | --- | --- |
-| 08.01 | Generalisation and the bias–variance trade-off | Explain over- and underfitting precisely | true vs empirical risk, model capacity, the bias–variance decomposition of prediction error, learning curves, double descent, intuitive VC and Rademacher bounds |
-| 08.02 | Cross-validation and data leakage | Estimate performance honestly | train/validation/test splits, k-fold, stratified, grouped and time-series CV, nested CV, scikit-learn Pipelines, the five common leaks |
-| 08.03 | Metrics and calibration | Choose a metric that matches the decision | confusion matrix, precision, recall, F1, ROC and PR curves, AUC, class imbalance, proper scoring rules (log loss, Brier), reliability diagrams, ECE, Platt, isotonic and temperature scaling |
-| 08.04 | Uncertainty and conformal prediction | Give predictions with guaranteed coverage | aleatoric vs epistemic uncertainty, split conformal prediction, conformalised quantile regression, ensembles, distribution shift |
-| 08.05 | PCA and high-dimensional data | Reduce dimensions with statistical sense | the curse of dimensionality, PCA as eigendecomposition of the covariance matrix, explained variance, probabilistic PCA, embeddings |
+| 08.01 | [Generalisation and bias–variance](01-generalization/lesson.md) | Test error = bias² + variance + noise; double descent | `train_test_split_indices`, `k_fold_indices` |
+| 08.02 | [Cross-validation and leakage](02-cross-validation-and-leakage/lesson.md) | Pipelines, GroupKFold, TimeSeriesSplit, nested CV | — |
+| 08.03 | [Metrics and calibration](03-metrics-and-calibration/lesson.md) | Thresholds from costs; PR-AUC for rare events; reliability diagrams | `confusion_matrix`, `precision_recall_f1`, `roc_curve_points`, `auc`, `brier_score`, `expected_calibration_error` |
+| 08.04 | [Uncertainty and conformal prediction](04-uncertainty-and-conformal/lesson.md) | Coverage guaranteed for any model; shift breaks it | `split_conformal_interval` |
+| 08.05 | [PCA and high-dimensional data](05-pca-high-dimensional/lesson.md) | Distance concentration; eigenvectors of the covariance | `pca` |
 
-## statkit functions (`statkit/learning.py`)
-
-`train_test_split(n, test_fraction, rng)`, `k_fold_indices(n, k, rng)`, `confusion_matrix`, `precision_recall_f1`,
-`roc_curve_points`, `auc`, `brier_score`, `expected_calibration_error`, `split_conformal_interval`, `pca(X, k)`.
+Run `make test M=learning` as you implement each function.
 
 ## Mini-project: a trustworthy classifier
 
-Train a classifier on scikit-learn's breast-cancer dataset with a leakage-free pipeline and nested cross-validation.
-Report metrics with bootstrap intervals, a reliability diagram before and after calibration, and conformal prediction
-sets with their empirical coverage.
+Brief in [projects/m08-trustworthy-classifier/README.md](../../projects/m08-trustworthy-classifier/README.md).
 
 ## Checkpoint (without notes)
 
 1. Why is a test set used for model selection no longer an unbiased estimate of performance?
-2. List four ways data leakage enters a project.
-3. Why can ROC-AUC look good while precision is poor on a rare class?
-4. What does the conformal coverage guarantee assume?
-5. `make test M=learning` passes.
+2. List four ways data leakage enters a project, and how to prevent each.
+3. Why can ROC-AUC look good while precision is poor on a rare class? Which metric would you report instead?
+4. How do you choose a decision threshold from costs?
+5. What does the conformal coverage guarantee assume, and when does it fail?
+6. Explain PCA as an eigenvalue problem.
+7. `make test M=learning` passes.
+
+Pass all seven → `git tag -a m08-done -m "Module 08 complete"`.
 
 ## Resources
 
 [ISLP](https://www.statlearning.com/) chapters 2, 5, 12 ·
 [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/) chapter 7 ·
+[Understanding Machine Learning](https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/) ·
 [A Gentle Introduction to Conformal Prediction](https://arxiv.org/abs/2107.07511) ·
-[scikit-learn user guide](https://scikit-learn.org/stable/)
+[scikit-learn user guide](https://scikit-learn.org/stable/) · [MAPIE](https://mapie.readthedocs.io/)
