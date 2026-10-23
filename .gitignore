@@ -1,0 +1,20 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+.idea/
+
+# Data: small files in data/ are committed; big or private files go in data/raw/
+data/raw/
+*.parquet
+*.h5
+
+# Generated figures from examples (re-created by running the scripts)
+**/figures/generated/

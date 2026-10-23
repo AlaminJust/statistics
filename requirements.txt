@@ -1,0 +1,13 @@
+# Exact versions tested with Python 3.14 on 2026-10-23.
+numpy==2.5.4
+pandas==3.1.0
+scipy==1.18.1
+matplotlib==3.11.2
+seaborn==0.13.2
+scikit-learn==1.9.1
+statsmodels==0.15.0
+pytest==9.1.1
+jupyterlab==4.6.4
+nbstripout==0.9.1
+# Added in Module 07: pymc, arviz
+# Added in Module 09: dowhy, econml

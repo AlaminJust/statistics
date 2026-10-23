@@ -1,0 +1,9 @@
+# Normalise line endings
+* text=auto eol=lf
+
+# Notebooks: outputs are stripped by nbstripout (see docs/setup.md) so diffs stay readable
+*.ipynb filter=nbstripout diff=ipynb
+
+*.png binary
+*.jpg binary
+*.pdf binary
