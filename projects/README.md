@@ -7,7 +7,8 @@ One mini-project per module plus the capstone. Each project lives in its own fol
 | --- | --- | --- |
 | [m01-gradient-descent](m01-gradient-descent/README.md) | 01 Math toolkit | Fit a line with gradient descent written from scratch |
 | [m02-eda-report](m02-eda-report/README.md) | 02 Descriptive statistics | Exploratory data analysis report on a real dataset |
-| m03 … m09 | | Briefs are added with each module |
+| [m03-spam-filter](m03-spam-filter/README.md) | 03 Probability | Famous problems by simulation; Naive Bayes spam filter from scratch |
+| m04 … m09 | | Briefs are added with each module |
 | capstone | 10 | See `curriculum/10-capstone/README.md` |
 
 Every project folder should end up with:

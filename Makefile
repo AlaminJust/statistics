@@ -1,7 +1,7 @@
 # Shortcuts for the course. Run `make help` to list them.
 PY := .venv/bin/python
 
-.PHONY: help setup lesson journal test examples
+.PHONY: help setup lesson journal test examples verify
 
 help:
 	@echo "make setup                 create .venv, install packages, enable nbstripout"
@@ -11,6 +11,7 @@ help:
 	@echo "make test                  run all statkit tests"
 	@echo "make test M=descriptive    run tests for one statkit module"
 	@echo "make examples              run every curriculum examples.py (smoke check)"
+	@echo "make verify                run the tests against the reference solutions (course maintenance)"
 
 setup:
 	python3 -m venv .venv
@@ -30,3 +31,6 @@ test:
 
 examples:
 	$(PY) scripts/run_examples.py
+
+verify:
+	$(PY) scripts/verify_reference.py

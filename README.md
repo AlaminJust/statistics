@@ -94,7 +94,7 @@ Then follow the loop in [docs/study-method.md](docs/study-method.md) and commit 
 | 00 | [Setup and study system](curriculum/00-setup/README.md) | 0 | Complete |
 | 01 | [Math toolkit](curriculum/01-math-toolkit/README.md) | 1–2 | Complete |
 | 02 | [Descriptive statistics](curriculum/02-descriptive-statistics/README.md) | 3–5 | Complete |
-| 03 | [Probability](curriculum/03-probability/README.md) | 6–8 | Outline — lessons added next |
+| 03 | [Probability](curriculum/03-probability/README.md) | 6–8 | Complete |
 | 04 | [Distributions](curriculum/04-distributions/README.md) | 9–11 | Outline |
 | 05 | [Statistical inference](curriculum/05-inference/README.md) | 12–15 | Outline |
 | 06 | [Regression and GLMs](curriculum/06-regression/README.md) | 16–19 | Outline |
